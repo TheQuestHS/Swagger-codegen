@@ -1,0 +1,131 @@
+openapi: 3.0.0
+info:
+  title: Patient API
+  description: Patient API using swagger.io by Himesh Sharma
+  contact:
+    name: Himesh Sharma
+    email: himesh.sharma2019@vitbhopal.ac.in
+  version: 1.0.0
+servers:
+- url: http://hostapi.com
+- url: hhtp://manageapi.com
+paths:
+  /patient:
+    description: Patient Resource
+    get:
+      description: Operation to fetch all the patients
+      operationId: patientGET
+      parameters:
+      - name: patientname
+        in: query
+        required: true
+        style: form
+        explode: true
+        schema:
+          type: string
+          example: Himesh
+      responses:
+        "200":
+          description: Success response
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patients'
+      x-swagger-router-controller: Default
+    put:
+      description: Updates an existing patient record
+      operationId: patientPUT
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/patient'
+      responses:
+        "201":
+          description: Record successfully updated
+      x-swagger-router-controller: Default
+  /patient{id}:
+    description: Deletes a patient record
+    delete:
+      operationId: patientidDELETE
+      parameters:
+      - name: id
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: integer
+      responses:
+        "200":
+          description: Successfully deletes the record
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patient'
+      x-swagger-router-controller: Default
+  /patient{find}:
+    description: Get the patient based on path parameter
+    get:
+      operationId: patientfindGET
+      parameters:
+      - name: find
+        in: path
+        required: true
+        style: simple
+        explode: false
+        schema:
+          type: string
+      responses:
+        "200":
+          description: Success response with path parameters
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/patients'
+      x-swagger-router-controller: Default
+components:
+  schemas:
+    patient:
+      type: object
+      properties:
+        PatientID:
+          type: integer
+          example: 401
+        PatientName:
+          type: string
+          example: Yash
+        PatientProblem:
+          type: string
+          example: Cancer
+        Bill:
+          type: integer
+          example: 5000000
+      example:
+        PatientProblem: Cancer
+        PatientID: 401
+        Bill: 5000000
+        PatientName: Yash
+    patients:
+      type: array
+      items:
+        $ref: '#/components/schemas/patients_inner'
+    patients_inner:
+      properties:
+        PatientID:
+          type: integer
+          example: 401
+        PatientName:
+          type: string
+          example: Yash
+        PatientProblem:
+          type: string
+          example: Cancer
+        Bill:
+          type: integer
+          example: 5000000
+      example:
+        PatientProblem: Cancer
+        PatientID: 401
+        Bill: 5000000
+        PatientName: Yash
