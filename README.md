@@ -1,3 +1,4 @@
+![Screenshot (1218)](https://user-images.githubusercontent.com/67106441/228622723-656aa491-a023-4fd5-b418-68aa8710c68f.png)
 # Swagger generated server
 
 ## Overview
