@@ -1,4 +1,3 @@
-![Screenshot (1218)](https://user-images.githubusercontent.com/67106441/228622723-656aa491-a023-4fd5-b418-68aa8710c68f.png)
 # Swagger generated server
 
 ## Overview
@@ -18,3 +17,4 @@ open http://localhost:8080/docs
 ```
 
 This project leverages the mega-awesome [swagger-tools](https://github.com/apigee-127/swagger-tools) middleware which does most all the work.
+![Screenshot (1218)](https://user-images.githubusercontent.com/67106441/228622723-656aa491-a023-4fd5-b418-68aa8710c68f.png)
